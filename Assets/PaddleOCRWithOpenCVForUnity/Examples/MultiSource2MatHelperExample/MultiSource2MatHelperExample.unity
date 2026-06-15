@@ -3510,8 +3510,8 @@ MonoBehaviour:
   DetModelOnnx: PP-OCRv5_mobile_det_infer_640x640.onnx
   DetModelSentis: PP-OCRv5_mobile_det_infer_640x640.sentis
   DetInputSize: 640
-  DetDbThresh: 0.3
-  DetDbBoxThresh: 0.6
+  DetDbThreshold: 0.3
+  DetDbBoxThreshold: 0.6
   DetDbUnclipRatio: 1.5
   ClsModelOnnx: PP-LCNet_x0_25_textline_ori_infer.onnx
   ClsModelSentis: PP-LCNet_x0_25_textline_ori_infer.sentis

@@ -172,16 +172,17 @@ MonoBehaviour:
   DetModelOnnx: PP-OCRv5_mobile_det_infer_640x640.onnx
   DetModelSentis: PP-OCRv5_mobile_det_infer_640x640.sentis
   DetInputSize: 640
-  DetDbThresh: 0.3
-  DetDbBoxThresh: 0.6
+  DetDbThreshold: 0.3
+  DetDbBoxThreshold: 0.6
   DetDbUnclipRatio: 1.5
   ClsModelOnnx: PP-LCNet_x0_25_textline_ori_infer.onnx
   ClsModelSentis: PP-LCNet_x0_25_textline_ori_infer.sentis
-  ClassificationScoreThreshold: 0.9
+  ClsScoreThreshold: 0.9
   RecLanguage: 0
   RecModelOnnx: multi/PP-OCRv5_mobile_rec_infer.onnx
   RecModelSentis: multi/PP-OCRv5_mobile_rec_infer.sentis
   DictFile: multi/PP-OCRv5_rec_character_dict.txt
+  RecScoreThreshold: 0.5
   ShowDebugRecognitionResults: 1
   AutoInitializeOnStart: 1
   WorkCompleted:

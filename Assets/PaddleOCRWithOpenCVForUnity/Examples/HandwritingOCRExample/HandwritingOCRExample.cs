@@ -307,10 +307,10 @@ namespace PaddleOCRWithOpenCVForUnityExample
                 return;
             }
 
-            List<(string text, float score)> rec = result.Recognitions;
-            string recognitionText = rec == null || rec.Count == 0
+            List<(string text, float score)> recognitions = result.Recognitions;
+            string recognitionText = recognitions == null || recognitions.Count == 0
                 ? string.Empty
-                : string.Join("\n", rec.Select(r => $"{r.text} ({r.score:F4})"));
+                : string.Join("\n", recognitions.Select(r => $"{r.text} ({r.score:F4})"));
 
             if (RecognitionResultField != null)
             {

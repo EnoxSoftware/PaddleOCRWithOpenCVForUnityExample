@@ -278,12 +278,14 @@ namespace PaddleOCRWithOpenCVForUnityExample
 
             _bgrMat.copyTo(_displayBgrMat);
 
-            if (!PaddleOCR.TryGetLatestResult(out Mat[] ocrMats))
+            if (!PaddleOCR.TryGetLatestResultViews(out Mat[] detView, out Mat[] clsView, out Mat[] recView))
                 return;
 
             PaddleOCRPipelineUtility.VisualizeOCRResults(
                 _displayBgrMat,
-                ocrMats,
+                detView,
+                clsView,
+                recView,
                 printResult: PrintResultToConsole,
                 isRGB: false);
 
@@ -301,10 +303,10 @@ namespace PaddleOCRWithOpenCVForUnityExample
             if (!PaddleOCR.TryGetLatestParsedResult(out PaddleOCRParsedResult parsed))
                 return;
 
-            var rec = parsed.Recognitions;
-            string text = rec == null || rec.Count == 0
+            var recognitions = parsed.Recognitions;
+            string text = recognitions == null || recognitions.Count == 0
                 ? string.Empty
-                : string.Join("\n", rec.Select(r => r.text));
+                : string.Join("\n", recognitions.Select(r => r.text));
 
             RecognitionResultField.text = text;
             RecognitionResultField.stringPosition = 0;

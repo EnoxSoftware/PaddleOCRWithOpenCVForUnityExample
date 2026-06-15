@@ -101,7 +101,8 @@ namespace PaddleOCRWithOpenCVForUnityExample
             //   WorkCompleted … completion kind and error message only (Inspector)
             //   WorkCompletedCode … subscribe to WorkCompletion<Mat> from code
             //   TryGetLatestParsedResult / TryGetLatestResult / TryGetLatestResultViews … poll for latest results
-            // This example uses WorkCompletedWithParsedResult → OnOCRResult.
+            // This example uses WorkCompletedWithParsedResult → OnOCRResult (success only by default;
+            // set InvokeParsedResultOnSuccess = false on PaddleOCRComponent to also receive failure/cancel).
             // For Mat input use BGR 8UC3. Texture2D is converted to BGR internally; temporary Mat is disposed inside Submit.
             PaddleOCR.Submit(InputTexture);
         }
@@ -130,6 +131,7 @@ namespace PaddleOCRWithOpenCVForUnityExample
             // PaddleOCRComponent Inspector:
             //   Work Completed With Parsed Result → this method (PaddleOCRParsedResultUnityEvent)
             // Kind … Succeeded / Failed / Cancelled, etc. Recognitions is valid only on success.
+            // Failure/cancel branches run only when PaddleOCRComponent.InvokeParsedResultOnSuccess is false.
 
             if (result.Kind != WorkCompletionKind.Succeeded)
             {
@@ -141,10 +143,10 @@ namespace PaddleOCRWithOpenCVForUnityExample
             }
 
             // Recognitions … list of (text, score). Detections → result.Detections, classifications → result.Classifications.
-            var rec = result.Recognitions;
-            string text = rec == null || rec.Count == 0
+            var recognitions = result.Recognitions;
+            string text = recognitions == null || recognitions.Count == 0
                 ? string.Empty
-                : string.Join("\n", rec.Select(r => r.text));
+                : string.Join("\n", recognitions.Select(r => r.text));
 
             if (RecognitionResultField != null)
             {

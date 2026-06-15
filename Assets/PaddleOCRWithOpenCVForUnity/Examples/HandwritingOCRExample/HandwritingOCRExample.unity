@@ -553,6 +553,30 @@ PrefabInstance:
       propertyPath: _inferenceSettingsChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 9158508669744963559, guid: 8e1c3d0ddb2424c4889a63ae6c14d179, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158508669744963559, guid: 8e1c3d0ddb2424c4889a63ae6c14d179, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158508669744963559, guid: 8e1c3d0ddb2424c4889a63ae6c14d179, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158508669744963559, guid: 8e1c3d0ddb2424c4889a63ae6c14d179, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158508669744963559, guid: 8e1c3d0ddb2424c4889a63ae6c14d179, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158508669744963559, guid: 8e1c3d0ddb2424c4889a63ae6c14d179, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -736,16 +760,17 @@ MonoBehaviour:
   DetModelOnnx: PP-OCRv5_mobile_det_infer_640x640.onnx
   DetModelSentis: PP-OCRv5_mobile_det_infer_640x640.sentis
   DetInputSize: 640
-  DetDbThresh: 0.3
-  DetDbBoxThresh: 0.6
+  DetDbThreshold: 0.3
+  DetDbBoxThreshold: 0.6
   DetDbUnclipRatio: 1.5
   ClsModelOnnx: PP-LCNet_x0_25_textline_ori_infer.onnx
   ClsModelSentis: PP-LCNet_x0_25_textline_ori_infer.sentis
-  ClassificationScoreThreshold: 0.9
+  ClsScoreThreshold: 0.9
   RecLanguage: 0
   RecModelOnnx: multi/PP-OCRv5_mobile_rec_infer.onnx
   RecModelSentis: multi/PP-OCRv5_mobile_rec_infer.sentis
   DictFile: multi/PP-OCRv5_rec_character_dict.txt
+  RecScoreThreshold: 0.5
   ShowDebugRecognitionResults: 1
   AutoInitializeOnStart: 1
   WorkCompleted:
@@ -767,7 +792,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  InvokeParsedResultOnSuccess: 1
+  InvokeParsedResultOnSuccess: 0
   _lastAppliedDetInputSize: 640
   _lastAppliedRecLanguage: 0
 --- !u!224 &46281774943607098
@@ -3790,7 +3815,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 365, y: -231.65137}
+  m_AnchoredPosition: {x: 365, y: -224.99998}
   m_SizeDelta: {x: 370, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4403824101142494662
@@ -6515,7 +6540,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3473097588522210169}
   m_HandleRect: {fileID: 7472133587525716652}
   m_Direction: 3
-  m_Value: -0.041
+  m_Value: -0.043
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
